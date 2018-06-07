@@ -31,3 +31,6 @@
 body {
   padding-top: 50px;
 }
+.autoModal.modal .modal-body{
+  max-height: 100%;
+}
