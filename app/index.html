@@ -1,50 +1,61 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html lang="en" ng-app="myApp" class="no-js"> 
+<!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>jQuery File Upload Example</title>
-  <link rel="stylesheet" href="app.css" type="text/css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
+<body data-gr-c-s-loaded="true">
 
-<body>
-  <div>
-    <input id="fileupload" type="file" name="files[]" multiple>
-  </div>
-  <div id="progress">
-    <div class="bar" style="width: 0%;"></div>
-  </div>
-  <iframe id="videoframe" style="display: none" src="http://fast.wistia.net/embed/iframe/pssft4xotc?videoFoam=true" allowtransparency="true"
-    frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen
-    oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
-  <script src="//fast.wistia.net/assets/external/iframe-api-v1.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="js/vendor/jquery.ui.widget.js"></script>
-  <script src="js/jquery.iframe-transport.js"></script>
-  <script src="js/jquery.fileupload.js"></script>
-  <script>
-    $(function () {
-      $('#fileupload').fileupload({
-        url: 'https://upload.wistia.com?api_password=********',
-        dataType: 'json',
-        done: function (e, data) {
-          console.log("http://fast.wistia.net/embed/iframe/" + data.result.hashed_id)
-          $('#videoframe').attr('src', "http://fast.wistia.net/embed/iframe/" + data.result.hashed_id);
-          $('#videoframe').css({
-            display: 'inline'
-          });
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+      </div>
+    </nav>
 
-        },
-        progressall: function (e, data) {
-          var progress = parseInt(data.loaded / data.total * 100, 10);
-          $('#progress .bar').css(
-            'width',
-            progress + '%'
-          );
-        }
-      });
-    });
-  </script>
+    <div class="container">
+
+        <div ng-controller="MainCtrl as ctrl">
+            <ps-uploader></ps-uploader>
+          </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="components/ps-uploader/ps-uploader.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
+    <script src="//fast.wistia.net/assets/external/iframe-api-v1.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/vendor/jquery.ui.widget.js"></script>
+    <script src="js/jquery.iframe-transport.js"></script>
+    <script src="js/jquery.fileupload.js"></script>
+    
 </body>
-
 </html>
