@@ -4,7 +4,7 @@ angular.module('myApp').component('psUploader', {
       var ctrl = this;
         this.$onInit = function() {
             $('#fileupload').fileupload({
-                url: 'https://upload.wistia.com?api_password=*******',
+                url: 'https://upload.wistia.com?api_password=d7deb2d58516aa3a5b6e18e990910360792f47b41c6b5bac14d9b7acb512a575',
                 dataType: 'json',
                 done: function (e, data) {
                   console.log("http://fast.wistia.net/embed/iframe/" + data.result.hashed_id)
